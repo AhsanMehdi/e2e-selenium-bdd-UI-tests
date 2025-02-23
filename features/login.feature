@@ -1,5 +1,5 @@
     Feature: Login Functionality
-
+        @test
         Scenario: User should be logged in to Swag Labs
             Given user is on login page
             When user enters the valid username

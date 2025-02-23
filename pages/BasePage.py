@@ -11,7 +11,7 @@ getting element text
 class BasePage:
 
     # driver initialization
-    def _init_ (self, driver):
+    def __init__ (self, driver):
         self.driver = driver
         self.time_to_wait = 30
 
@@ -20,10 +20,10 @@ class BasePage:
         WebDriverWait (self.driver, self.time_to_wait).until(EC.visibility_of_element_located(element_locator)).click()
     # enter the text in web element
     def entering_text_element(self, element_locator, text_to_enter):
-        WebDriverWait (self.driver, self.time_to_wait).until(EC.visibility_of_element_located(element_locator).send_keys(text_to_enter))
+        WebDriverWait (self.driver, self.time_to_wait).until(EC.visibility_of_element_located(element_locator)).send_keys(text_to_enter)
     # get the text of the web element
     def get_the_element_text (self, element_locator):
-        WebDriverWait (self.driver, self.time_to_wait).until(EC.visibility_of_element_located(element_locator).text)
+        return   WebDriverWait (self.driver, self.time_to_wait).until(EC.visibility_of_element_located(element_locator)).text
     # getting a web element
     def get_an_element (self, element_locator):
-        WebDriverWait (self.driver, self.time_to_wait).until(EC.visibility_of_element_located(element_locator))
+        return  WebDriverWait (self.driver, self.time_to_wait).until(EC.visibility_of_element_located(element_locator))
