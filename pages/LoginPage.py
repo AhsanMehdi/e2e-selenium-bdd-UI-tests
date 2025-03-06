@@ -7,10 +7,10 @@ getting all the elements of those locators
 """
 class LoginPage (BasePage):
 
-    usename_input = (By.ID, "user-name")
+    username_input = (By.ID, "user-name")
     password_input = (By.ID, "password")
     login_button = (By.ID, "login-button")
-    dashboard_page = (By.ID, "")
+    dashboard_page = (By.CLASS_NAME, "app_logo")
 
     # calling the constructor
     def __init__(self, driver):
@@ -18,12 +18,16 @@ class LoginPage (BasePage):
 
     # interacting with the username element
     def enter_username (self, username):
-        self.entering_text_element(self.usename_input, username)
+        self.entering_text_element(self.username_input, username)
     
     # interacting with password element
     def enter_password(self, password):
         self.entering_text_element(self.password_input, password)
 
     # now clicking on the login button
-    def click_on_element(self, element_locator):
-        self.click_on_element
+    def click_on_login_btn(self):
+        self.click_on_element(self.login_button)
+
+    # assert the is dashboard displayed
+    def is_dashboard_displayed(self):
+        return self.get_an_element(self.dashboard_page) is not None
